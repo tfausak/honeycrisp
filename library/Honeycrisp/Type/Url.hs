@@ -2,6 +2,7 @@ module Honeycrisp.Type.Url
   ( Url
   , uriToUrl
   , urlToUri
+  , stringToUrl
   )
 where
 
@@ -16,3 +17,8 @@ uriToUrl = Url
 
 urlToUri :: Url -> Uri.URI
 urlToUri (Url uri) = uri
+
+stringToUrl :: String -> Either String Url
+stringToUrl string =
+  maybe (Left $ "invalid Url: " <> show string) (Right . uriToUrl)
+    $ Uri.parseAbsoluteURI string

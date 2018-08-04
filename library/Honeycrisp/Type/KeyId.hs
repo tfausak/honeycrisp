@@ -2,6 +2,7 @@ module Honeycrisp.Type.KeyId
   ( KeyId
   , uuidToKeyId
   , keyIdToUuid
+  , stringToKeyId
   )
 where
 
@@ -16,3 +17,8 @@ uuidToKeyId = KeyId
 
 keyIdToUuid :: KeyId -> Uuid.UUID
 keyIdToUuid (KeyId uuid) = uuid
+
+stringToKeyId :: String -> Either String KeyId
+stringToKeyId string =
+  maybe (Left $ "invalid KeyId: " <> show string) (Right . uuidToKeyId)
+    $ Uuid.fromString string
