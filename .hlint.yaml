@@ -3,5 +3,10 @@
 - group: { name: dollar, enabled: true }
 - group: { name: generalise, enabled: true }
 - modules:
+  - default: false
+  - { name: Data.Aeson, as: Aeson }
+  - { name: Data.ByteString, as: ByteString }
+  - { name: Data.UUID, as: Uuid }
   - { name: Data.Version, as: Version }
+  - { name: Network.URI, as: Uri }
   - { name: Paths_honeycrisp, as: Package }
