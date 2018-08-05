@@ -10,10 +10,13 @@ import qualified Data.UUID as Uuid
 
 newtype ChannelId
   = ChannelId Uuid.UUID
-  deriving (Eq, Show)
+  deriving Eq
 
 instance Aeson.FromJSON ChannelId where
   parseJSON = fmap uuidToChannelId . Aeson.parseJSON
+
+instance Show ChannelId where
+  show = show . Uuid.toString . channelIdToUuid
 
 uuidToChannelId :: Uuid.UUID -> ChannelId
 uuidToChannelId = ChannelId

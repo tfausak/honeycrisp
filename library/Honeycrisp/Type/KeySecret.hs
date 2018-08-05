@@ -13,7 +13,10 @@ import qualified Data.Text.Encoding as Text
 
 newtype KeySecret
   = KeySecret ByteString.ByteString
-  deriving (Eq, Show)
+  deriving Eq
+
+instance Show KeySecret where
+  show = const "\"[SECRET]\""
 
 byteStringToKeySecret :: ByteString.ByteString -> KeySecret
 byteStringToKeySecret = KeySecret

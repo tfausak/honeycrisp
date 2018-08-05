@@ -7,11 +7,20 @@ module Honeycrisp.Type.Url
   )
 where
 
+import qualified Data.Aeson as Aeson
 import qualified Network.URI as Uri
 
 newtype Url
   = Url Uri.URI
-  deriving (Eq, Show)
+  deriving Eq
+
+instance Aeson.FromJSON Url where
+  parseJSON value = do
+    string <- Aeson.parseJSON value
+    either fail pure $ stringToUrl string
+
+instance Show Url where
+  show = show . urlToString
 
 uriToUrl :: Uri.URI -> Url
 uriToUrl = Url

@@ -10,7 +10,10 @@ import qualified Data.UUID as Uuid
 
 newtype KeyId
   = KeyId Uuid.UUID
-  deriving (Eq, Show)
+  deriving Eq
+
+instance Show KeyId where
+  show = show . Uuid.toString . keyIdToUuid
 
 uuidToKeyId :: Uuid.UUID -> KeyId
 uuidToKeyId = KeyId

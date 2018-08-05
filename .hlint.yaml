@@ -18,9 +18,18 @@
   - { name: Data.Time, as: Time }
   - { name: Data.UUID, as: Uuid }
   - { name: Data.Version, as: Version }
+  - { name: Honeycrisp.Helper, as: Helper }
+  - { name: Honeycrisp.Type.Channel, as: Channel }
+  - { name: Honeycrisp.Type.ChannelId, as: ChannelId }
+  - { name: Honeycrisp.Type.ChannelLinks, as: ChannelLinks }
+  - { name: Honeycrisp.Type.Config, as: Config }
   - { name: Honeycrisp.Type.KeyId, as: KeyId }
   - { name: Honeycrisp.Type.KeySecret, as: KeySecret }
+  - { name: Honeycrisp.Type.Response, as: Response }
   - { name: Honeycrisp.Type.Url, as: Url }
+  - { name: Honeycrisp.Version, as: Version }
+  - { name: Lens.Micro, as: Lens }
+  - { name: Lens.Micro.Extras, as: Lens }
   - { name: Network.HTTP.Client, as: Client }
   - { name: Network.HTTP.Types, as: Http }
   - { name: Network.URI, as: Uri }

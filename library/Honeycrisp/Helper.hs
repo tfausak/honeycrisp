@@ -1,10 +1,12 @@
-module Honeycrisp.Http
-  ( httpRequest
+module Honeycrisp.Helper
+  ( createRequest
+  , performRequest
   )
 where
 
 import qualified Crypto.Hash as Crypto
 import qualified Crypto.MAC.HMAC as Crypto
+import qualified Data.Aeson as Aeson
 import qualified Data.ByteArray.Encoding as Memory
 import qualified Data.ByteString as ByteString
 import qualified Data.ByteString.Builder as Builder
@@ -15,11 +17,47 @@ import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Time as Time
 import qualified Data.UUID as Uuid
+import qualified Honeycrisp.Type.Config as Config
 import qualified Honeycrisp.Type.KeyId as KeyId
 import qualified Honeycrisp.Type.KeySecret as KeySecret
+import qualified Honeycrisp.Type.Response as Response
 import qualified Honeycrisp.Type.Url as Url
+import qualified Honeycrisp.Version as Version
+import qualified Lens.Micro.Extras as Lens
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as Http
+import qualified Network.URI as Uri
+
+createRequest :: Config.Config -> String -> IO Client.Request
+createRequest config path = do
+  request <-
+    Client.requestFromURI
+    . Uri.relativeTo Uri.nullURI { Uri.uriPath = path }
+    . Url.urlToUri
+    $ Lens.view Config.configBaseUrlLens config
+  pure request
+    { Client.checkResponse = Client.throwErrorStatusCodes
+    , Client.requestHeaders = [(Http.hUserAgent, userAgent)]
+    }
+
+userAgent :: ByteString.ByteString
+userAgent = toUtf8 $ "honeycrisp-" <> Version.versionString
+
+performRequest
+  :: Aeson.FromJSON a
+  => Config.Config
+  -> Client.Manager
+  -> Client.Request
+  -> IO a
+performRequest config manager request = do
+  response <- httpRequest
+    manager
+    (Lens.view Config.configKeyIdLens config)
+    (Lens.view Config.configKeySecretLens config)
+    request
+  either fail (pure . Response.fromResponse)
+    . Aeson.eitherDecode
+    $ Client.responseBody response
 
 httpRequest
   :: Client.Manager
