@@ -4,9 +4,25 @@
 - group: { name: generalise, enabled: true }
 - modules:
   - default: false
+  - { name: Crypto.Hash, as: Crypto }
+  - { name: Crypto.MAC.HMAC, as: Crypto }
   - { name: Data.Aeson, as: Aeson }
+  - { name: Data.ByteArray.Encoding, as: Memory }
   - { name: Data.ByteString, as: ByteString }
+  - { name: Data.ByteString.Builder, as: Builder }
+  - { name: Data.ByteString.Lazy, as: LazyByteString }
+  - { name: Data.IORef, as: IORef }
+  - { name: Data.Maybe, as: Maybe }
+  - { name: Data.Text, as: Text }
+  - { name: Data.Text.Encoding, as: Text }
+  - { name: Data.Time, as: Time }
   - { name: Data.UUID, as: Uuid }
   - { name: Data.Version, as: Version }
+  - { name: Honeycrisp.Type.KeyId, as: KeyId }
+  - { name: Honeycrisp.Type.KeySecret, as: KeySecret }
+  - { name: Honeycrisp.Type.Url, as: Url }
+  - { name: Network.HTTP.Client, as: Client }
+  - { name: Network.HTTP.Types, as: Http }
   - { name: Network.URI, as: Uri }
   - { name: Paths_honeycrisp, as: Package }
+  - { name: System.Environment, as: Environment }
