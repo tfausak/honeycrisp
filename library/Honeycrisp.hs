@@ -2,6 +2,7 @@
 module Honeycrisp
   ( Honeycrisp.Api.Channel.getChannel
   , Honeycrisp.Api.Section.getChannelSections
+  , Honeycrisp.Api.Section.getSection
   , Honeycrisp.Type.Channel.Channel
   , Honeycrisp.Type.Channel.channelCreatedAt
   , Honeycrisp.Type.Channel.channelId
