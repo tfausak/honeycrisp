@@ -2,25 +2,25 @@
 module Honeycrisp
   ( Honeycrisp.Api.Channel.getChannel
   , Honeycrisp.Type.Channel.Channel
-  , Honeycrisp.Type.Channel.channelCreatedAtLens
-  , Honeycrisp.Type.Channel.channelIdLens
-  , Honeycrisp.Type.Channel.channelLinksLens
-  , Honeycrisp.Type.Channel.channelModifiedAtLens
-  , Honeycrisp.Type.Channel.channelNameLens
-  , Honeycrisp.Type.Channel.channelShareUrlLens
-  , Honeycrisp.Type.Channel.channelTypeLens
-  , Honeycrisp.Type.Channel.channelWebsiteLens
+  , Honeycrisp.Type.Channel.channelCreatedAt
+  , Honeycrisp.Type.Channel.channelId
+  , Honeycrisp.Type.Channel.channelLinks
+  , Honeycrisp.Type.Channel.channelModifiedAt
+  , Honeycrisp.Type.Channel.channelName
+  , Honeycrisp.Type.Channel.channelShareUrl
+  , Honeycrisp.Type.Channel.channelType
+  , Honeycrisp.Type.Channel.channelWebsite
   , Honeycrisp.Type.ChannelId.ChannelId
   , Honeycrisp.Type.ChannelId.uuidToChannelId
   , Honeycrisp.Type.ChannelId.channelIdToUuid
   , Honeycrisp.Type.ChannelLinks.ChannelLinks
-  , Honeycrisp.Type.ChannelLinks.channelLinksDefaultSectionLens
-  , Honeycrisp.Type.ChannelLinks.channelLinksSelfLens
+  , Honeycrisp.Type.ChannelLinks.channelLinksDefaultSection
+  , Honeycrisp.Type.ChannelLinks.channelLinksSelf
   , Honeycrisp.Type.Config.Config
   , Honeycrisp.Type.Config.getConfig
-  , Honeycrisp.Type.Config.configBaseUrlLens
-  , Honeycrisp.Type.Config.configKeyIdLens
-  , Honeycrisp.Type.Config.configKeySecretLens
+  , Honeycrisp.Type.Config.configBaseUrl
+  , Honeycrisp.Type.Config.configKeyId
+  , Honeycrisp.Type.Config.configKeySecret
   , Honeycrisp.Type.KeyId.KeyId
   , Honeycrisp.Type.KeyId.uuidToKeyId
   , Honeycrisp.Type.KeyId.keyIdToUuid

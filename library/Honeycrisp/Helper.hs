@@ -34,7 +34,7 @@ createRequest config path = do
     Client.requestFromURI
     . Uri.relativeTo Uri.nullURI { Uri.uriPath = path }
     . Url.urlToUri
-    $ Lens.view Config.configBaseUrlLens config
+    $ Lens.view Config.configBaseUrl config
   pure request
     { Client.checkResponse = Client.throwErrorStatusCodes
     , Client.requestHeaders = [(Http.hUserAgent, userAgent)]
@@ -52,8 +52,8 @@ performRequest
 performRequest config manager request = do
   response <- httpRequest
     manager
-    (Lens.view Config.configKeyIdLens config)
-    (Lens.view Config.configKeySecretLens config)
+    (Lens.view Config.configKeyId config)
+    (Lens.view Config.configKeySecret config)
     request
   either fail (pure . Response.fromResponse)
     . Aeson.eitherDecode

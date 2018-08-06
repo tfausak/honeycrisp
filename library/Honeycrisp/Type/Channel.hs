@@ -1,13 +1,13 @@
 module Honeycrisp.Type.Channel
   ( Channel
-  , channelCreatedAtLens
-  , channelIdLens
-  , channelLinksLens
-  , channelModifiedAtLens
-  , channelNameLens
-  , channelShareUrlLens
-  , channelTypeLens
-  , channelWebsiteLens
+  , channelCreatedAt
+  , channelId
+  , channelLinks
+  , channelModifiedAt
+  , channelName
+  , channelShareUrl
+  , channelType
+  , channelWebsite
   )
 where
 
@@ -21,14 +21,14 @@ import qualified Lens.Micro as Lens
 
 -- | <https://developer.apple.com/documentation/apple_news/channel>
 data Channel = Channel
-  { channelCreatedAt :: Time.UTCTime
-  , channelId :: ChannelId.ChannelId
-  , channelLinks :: ChannelLinks.ChannelLinks
-  , channelModifiedAt :: Time.UTCTime
-  , channelName :: Text.Text
-  , channelShareUrl :: Url.Url
-  , channelType :: Text.Text -- TODO
-  , channelWebsite :: Url.Url
+  { channel_createdAt :: Time.UTCTime
+  , channel_id :: ChannelId.ChannelId
+  , channel_links :: ChannelLinks.ChannelLinks
+  , channel_modifiedAt :: Time.UTCTime
+  , channel_name :: Text.Text
+  , channel_shareUrl :: Url.Url
+  , channel_type :: Text.Text -- TODO
+  , channel_website :: Url.Url
   } deriving (Eq, Show)
 
 instance Aeson.FromJSON Channel where
@@ -51,34 +51,34 @@ instance Aeson.FromJSON Channel where
       <*> object
       Aeson..: Text.pack "website"
 
-channelCreatedAtLens :: Lens.Lens' Channel Time.UTCTime
-channelCreatedAtLens = Lens.lens channelCreatedAt
-  $ \channel createdAt -> channel { channelCreatedAt = createdAt }
+channelCreatedAt :: Lens.Lens' Channel Time.UTCTime
+channelCreatedAt = Lens.lens channel_createdAt
+  $ \channel createdAt -> channel { channel_createdAt = createdAt }
 
-channelIdLens :: Lens.Lens' Channel ChannelId.ChannelId
-channelIdLens =
-  Lens.lens channelId $ \channel id_ -> channel { channelId = id_ }
+channelId :: Lens.Lens' Channel ChannelId.ChannelId
+channelId =
+  Lens.lens channel_id $ \channel id_ -> channel { channel_id = id_ }
 
-channelLinksLens :: Lens.Lens' Channel ChannelLinks.ChannelLinks
-channelLinksLens =
-  Lens.lens channelLinks $ \channel links -> channel { channelLinks = links }
+channelLinks :: Lens.Lens' Channel ChannelLinks.ChannelLinks
+channelLinks =
+  Lens.lens channel_links $ \channel links -> channel { channel_links = links }
 
-channelModifiedAtLens :: Lens.Lens' Channel Time.UTCTime
-channelModifiedAtLens = Lens.lens channelModifiedAt
-  $ \channel modifiedAt -> channel { channelModifiedAt = modifiedAt }
+channelModifiedAt :: Lens.Lens' Channel Time.UTCTime
+channelModifiedAt = Lens.lens channel_modifiedAt
+  $ \channel modifiedAt -> channel { channel_modifiedAt = modifiedAt }
 
-channelNameLens :: Lens.Lens' Channel Text.Text
-channelNameLens =
-  Lens.lens channelName $ \channel name -> channel { channelName = name }
+channelName :: Lens.Lens' Channel Text.Text
+channelName =
+  Lens.lens channel_name $ \channel name -> channel { channel_name = name }
 
-channelShareUrlLens :: Lens.Lens' Channel Url.Url
-channelShareUrlLens = Lens.lens channelShareUrl
-  $ \channel shareUrl -> channel { channelShareUrl = shareUrl }
+channelShareUrl :: Lens.Lens' Channel Url.Url
+channelShareUrl = Lens.lens channel_shareUrl
+  $ \channel shareUrl -> channel { channel_shareUrl = shareUrl }
 
-channelTypeLens :: Lens.Lens' Channel Text.Text
-channelTypeLens =
-  Lens.lens channelType $ \channel type_ -> channel { channelType = type_ }
+channelType :: Lens.Lens' Channel Text.Text
+channelType =
+  Lens.lens channel_type $ \channel type_ -> channel { channel_type = type_ }
 
-channelWebsiteLens :: Lens.Lens' Channel Url.Url
-channelWebsiteLens = Lens.lens channelWebsite
-  $ \channel website -> channel { channelWebsite = website }
+channelWebsite :: Lens.Lens' Channel Url.Url
+channelWebsite = Lens.lens channel_website
+  $ \channel website -> channel { channel_website = website }

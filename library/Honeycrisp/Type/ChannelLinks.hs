@@ -1,7 +1,7 @@
 module Honeycrisp.Type.ChannelLinks
   ( ChannelLinks
-  , channelLinksDefaultSectionLens
-  , channelLinksSelfLens
+  , channelLinksDefaultSection
+  , channelLinksSelf
   )
 where
 
@@ -12,8 +12,8 @@ import qualified Lens.Micro as Lens
 
 -- | <https://developer.apple.com/documentation/apple_news/channellinks>
 data ChannelLinks = ChannelLinks
-  { channelLinksDefaultSection :: Url.Url
-  , channelLinksSelf :: Url.Url
+  { channelLinks_defaultSection :: Url.Url
+  , channelLinks_self :: Url.Url
   } deriving (Eq, Show)
 
 instance Aeson.FromJSON ChannelLinks where
@@ -24,11 +24,11 @@ instance Aeson.FromJSON ChannelLinks where
       <*> object
       Aeson..: Text.pack "self"
 
-channelLinksDefaultSectionLens :: Lens.Lens' ChannelLinks Url.Url
-channelLinksDefaultSectionLens =
-  Lens.lens channelLinksDefaultSection $ \channelLinks defaultSection ->
-    channelLinks { channelLinksDefaultSection = defaultSection }
+channelLinksDefaultSection :: Lens.Lens' ChannelLinks Url.Url
+channelLinksDefaultSection =
+  Lens.lens channelLinks_defaultSection $ \channelLinks defaultSection ->
+    channelLinks { channelLinks_defaultSection = defaultSection }
 
-channelLinksSelfLens :: Lens.Lens' ChannelLinks Url.Url
-channelLinksSelfLens = Lens.lens channelLinksSelf
-  $ \channelLinks self -> channelLinks { channelLinksSelf = self }
+channelLinksSelf :: Lens.Lens' ChannelLinks Url.Url
+channelLinksSelf = Lens.lens channelLinks_self
+  $ \channelLinks self -> channelLinks { channelLinks_self = self }

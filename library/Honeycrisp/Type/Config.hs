@@ -1,9 +1,9 @@
 module Honeycrisp.Type.Config
   ( Config
   , getConfig
-  , configBaseUrlLens
-  , configKeyIdLens
-  , configKeySecretLens
+  , configBaseUrl
+  , configKeyId
+  , configKeySecret
   )
 where
 
@@ -15,9 +15,9 @@ import qualified Lens.Micro as Lens
 import qualified System.Environment as Environment
 
 data Config = Config
-  { configBaseUrl :: Url.Url
-  , configKeyId :: KeyId.KeyId
-  , configKeySecret :: KeySecret.KeySecret
+  { config_baseUrl :: Url.Url
+  , config_keyId :: KeyId.KeyId
+  , config_keySecret :: KeySecret.KeySecret
   } deriving (Eq, Show)
 
 getConfig :: IO Config
@@ -40,14 +40,14 @@ getKeySecret = do
   string <- Environment.getEnv "HONEYCRISP_KEY_SECRET"
   either fail pure $ KeySecret.stringToKeySecret string
 
-configBaseUrlLens :: Lens.Lens' Config Url.Url
-configBaseUrlLens = Lens.lens configBaseUrl
-  $ \config baseUrl -> config { configBaseUrl = baseUrl }
+configBaseUrl :: Lens.Lens' Config Url.Url
+configBaseUrl = Lens.lens config_baseUrl
+  $ \config baseUrl -> config { config_baseUrl = baseUrl }
 
-configKeyIdLens :: Lens.Lens' Config KeyId.KeyId
-configKeyIdLens =
-  Lens.lens configKeyId $ \config keyId -> config { configKeyId = keyId }
+configKeyId :: Lens.Lens' Config KeyId.KeyId
+configKeyId =
+  Lens.lens config_keyId $ \config keyId -> config { config_keyId = keyId }
 
-configKeySecretLens :: Lens.Lens' Config KeySecret.KeySecret
-configKeySecretLens = Lens.lens configKeySecret
-  $ \config keySecret -> config { configKeySecret = keySecret }
+configKeySecret :: Lens.Lens' Config KeySecret.KeySecret
+configKeySecret = Lens.lens config_keySecret
+  $ \config keySecret -> config { config_keySecret = keySecret }
