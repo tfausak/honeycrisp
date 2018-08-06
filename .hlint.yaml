@@ -26,6 +26,9 @@
   - { name: Honeycrisp.Type.KeyId, as: KeyId }
   - { name: Honeycrisp.Type.KeySecret, as: KeySecret }
   - { name: Honeycrisp.Type.Response, as: Response }
+  - { name: Honeycrisp.Type.Section, as: Section }
+  - { name: Honeycrisp.Type.SectionId, as: SectionId }
+  - { name: Honeycrisp.Type.SectionLinks, as: SectionLinks }
   - { name: Honeycrisp.Type.Url, as: Url }
   - { name: Honeycrisp.Version, as: Version }
   - { name: Lens.Micro, as: Lens }

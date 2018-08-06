@@ -1,6 +1,7 @@
 -- | <https://developer.apple.com/documentation/apple_news/apple_news_api>
 module Honeycrisp
   ( Honeycrisp.Api.Channel.getChannel
+  , Honeycrisp.Api.Section.getChannelSections
   , Honeycrisp.Type.Channel.Channel
   , Honeycrisp.Type.Channel.channelCreatedAt
   , Honeycrisp.Type.Channel.channelId
@@ -32,9 +33,21 @@ module Honeycrisp
   , Honeycrisp.Type.Response.Response
   , Honeycrisp.Type.Response.toResponse
   , Honeycrisp.Type.Response.fromResponse
+  , Honeycrisp.Type.Section.Section
+  , Honeycrisp.Type.Section.sectionCreatedAt
+  , Honeycrisp.Type.Section.sectionId
+  , Honeycrisp.Type.Section.sectionLinks
+  , Honeycrisp.Type.Section.sectionIsDefault
+  , Honeycrisp.Type.Section.sectionModifiedAt
+  , Honeycrisp.Type.Section.sectionName
+  , Honeycrisp.Type.Section.sectionShareUrl
+  , Honeycrisp.Type.Section.sectionType
   , Honeycrisp.Type.SectionId.SectionId
   , Honeycrisp.Type.SectionId.uuidToSectionId
   , Honeycrisp.Type.SectionId.sectionIdToUuid
+  , Honeycrisp.Type.SectionLinks.SectionLinks
+  , Honeycrisp.Type.SectionLinks.sectionLinksChannel
+  , Honeycrisp.Type.SectionLinks.sectionLinksSelf
   , Honeycrisp.Type.Url.Url
   , Honeycrisp.Type.Url.uriToUrl
   , Honeycrisp.Type.Url.urlToUri
@@ -45,6 +58,7 @@ module Honeycrisp
 where
 
 import qualified Honeycrisp.Api.Channel
+import qualified Honeycrisp.Api.Section
 import qualified Honeycrisp.Type.Channel
 import qualified Honeycrisp.Type.ChannelId
 import qualified Honeycrisp.Type.ChannelLinks
@@ -52,7 +66,9 @@ import qualified Honeycrisp.Type.Config
 import qualified Honeycrisp.Type.KeyId
 import qualified Honeycrisp.Type.KeySecret
 import qualified Honeycrisp.Type.Response
+import qualified Honeycrisp.Type.Section
 import qualified Honeycrisp.Type.SectionId
+import qualified Honeycrisp.Type.SectionLinks
 import qualified Honeycrisp.Type.Url
 import qualified Honeycrisp.Version
 
