@@ -4,7 +4,7 @@ module Honeycrisp.Api.Channel
 where
 
 import qualified Data.UUID as Uuid
-import qualified Honeycrisp.Helper as Helper
+import qualified Honeycrisp.Api.Request as Request
 import qualified Honeycrisp.Type.Channel as Channel
 import qualified Honeycrisp.Type.ChannelId as ChannelId
 import qualified Honeycrisp.Type.Config as Config
@@ -17,6 +17,6 @@ getChannel
   -> ChannelId.ChannelId
   -> IO Channel.Channel
 getChannel config manager channelId = do
-  request <- Helper.createRequest config $ "channels/" <> Uuid.toString
+  request <- Request.createRequest config $ "channels/" <> Uuid.toString
     (ChannelId.channelIdToUuid channelId)
-  Helper.performRequest config manager request
+  Request.performRequest config manager request

@@ -18,7 +18,7 @@
   - { name: Data.Time, as: Time }
   - { name: Data.UUID, as: Uuid }
   - { name: Data.Version, as: Version }
-  - { name: Honeycrisp.Helper, as: Helper }
+  - { name: Honeycrisp.Api.Request, as: Request }
   - { name: Honeycrisp.Type.Channel, as: Channel }
   - { name: Honeycrisp.Type.ChannelId, as: ChannelId }
   - { name: Honeycrisp.Type.ChannelLinks, as: ChannelLinks }

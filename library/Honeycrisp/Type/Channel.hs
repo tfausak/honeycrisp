@@ -27,7 +27,7 @@ data Channel = Channel
   , channel_modifiedAt :: Time.UTCTime
   , channel_name :: Text.Text
   , channel_shareUrl :: Url.Url
-  , channel_type :: Text.Text -- TODO
+  , channel_type :: Text.Text
   , channel_website :: Url.Url
   } deriving (Eq, Show)
 

@@ -4,8 +4,8 @@ version: 0.0.0
 category: Web
 description: Honeycrisp is an Apple News API client.
 extra-source-files:
-  - stack.yaml
   - package.yaml
+  - stack.yaml
 license-file: LICENSE.markdown
 license: MIT
 maintainer: Taylor Fausak

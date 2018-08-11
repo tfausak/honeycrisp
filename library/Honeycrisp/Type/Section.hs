@@ -27,7 +27,7 @@ data Section = Section
   , section_modifiedAt :: Time.UTCTime
   , section_name :: Text.Text
   , section_shareUrl :: Url.Url
-  , section_type :: Text.Text -- TODO
+  , section_type :: Text.Text
   } deriving (Eq, Show)
 
 instance Aeson.FromJSON Section where

@@ -5,7 +5,7 @@ module Honeycrisp.Api.Section
 where
 
 import qualified Data.UUID as Uuid
-import qualified Honeycrisp.Helper as Helper
+import qualified Honeycrisp.Api.Request as Request
 import qualified Honeycrisp.Type.ChannelId as ChannelId
 import qualified Honeycrisp.Type.Config as Config
 import qualified Honeycrisp.Type.Section as Section
@@ -20,11 +20,11 @@ getChannelSections
   -> IO [Section.Section]
 getChannelSections config manager channelId = do
   request <-
-    Helper.createRequest config
+    Request.createRequest config
     $ "channels/"
     <> Uuid.toString (ChannelId.channelIdToUuid channelId)
     <> "/sections"
-  Helper.performRequest config manager request
+  Request.performRequest config manager request
 
 -- | <https://developer.apple.com/documentation/apple_news/read_section_information>
 getSection
@@ -33,6 +33,6 @@ getSection
   -> SectionId.SectionId
   -> IO Section.Section
 getSection config manager sectionId = do
-  request <- Helper.createRequest config $ "sections/" <> Uuid.toString
+  request <- Request.createRequest config $ "sections/" <> Uuid.toString
     (SectionId.sectionIdToUuid sectionId)
-  Helper.performRequest config manager request
+  Request.performRequest config manager request
