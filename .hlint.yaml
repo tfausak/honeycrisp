@@ -18,13 +18,18 @@
   - { name: Data.Time, as: Time }
   - { name: Data.UUID, as: Uuid }
   - { name: Data.Version, as: Version }
-  - { name: Honeycrisp.Api.Request, as: Request }
+  - { name: Honeycrisp.Api.Channel, as: Channel }
+  - { name: Honeycrisp.Api.Helper, as: Helper }
+  - { name: Honeycrisp.Api.Section, as: Section }
+  - { name: Honeycrisp.Type.ArticleId, as: ArticleId }
   - { name: Honeycrisp.Type.Channel, as: Channel }
   - { name: Honeycrisp.Type.ChannelId, as: ChannelId }
   - { name: Honeycrisp.Type.ChannelLinks, as: ChannelLinks }
   - { name: Honeycrisp.Type.Config, as: Config }
   - { name: Honeycrisp.Type.KeyId, as: KeyId }
   - { name: Honeycrisp.Type.KeySecret, as: KeySecret }
+  - { name: Honeycrisp.Type.PromotedArticles, as: PromotedArticles }
+  - { name: Honeycrisp.Type.Request, as: Request }
   - { name: Honeycrisp.Type.Response, as: Response }
   - { name: Honeycrisp.Type.Section, as: Section }
   - { name: Honeycrisp.Type.SectionId, as: SectionId }

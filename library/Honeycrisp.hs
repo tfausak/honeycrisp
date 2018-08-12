@@ -85,5 +85,3 @@ import qualified Honeycrisp.Type.SectionId
 import qualified Honeycrisp.Type.SectionLinks
 import qualified Honeycrisp.Type.Url
 import qualified Honeycrisp.Version
-
-{-# ANN module "HLint: ignore Avoid restricted module" #-}
