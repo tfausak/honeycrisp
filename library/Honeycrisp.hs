@@ -4,6 +4,7 @@ module Honeycrisp
   , Honeycrisp.Api.Section.getChannelSections
   , Honeycrisp.Api.Section.getSection
   , Honeycrisp.Api.Section.promoteSectionArticles
+  , Honeycrisp.Api.Article.deleteArticle
   , Honeycrisp.Type.ArticleId.ArticleId
   , Honeycrisp.Type.ArticleId.uuidToArticleId
   , Honeycrisp.Type.ArticleId.articleIdToUuid
@@ -68,6 +69,7 @@ module Honeycrisp
   )
 where
 
+import qualified Honeycrisp.Api.Article
 import qualified Honeycrisp.Api.Channel
 import qualified Honeycrisp.Api.Section
 import qualified Honeycrisp.Type.ArticleId
