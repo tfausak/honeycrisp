@@ -22,7 +22,9 @@
   - { name: Honeycrisp.Api.Channel, as: Channel }
   - { name: Honeycrisp.Api.Helper, as: Helper }
   - { name: Honeycrisp.Api.Section, as: Section }
+  - { name: Honeycrisp.Type.Article, as: Article }
   - { name: Honeycrisp.Type.ArticleId, as: ArticleId }
+  - { name: Honeycrisp.Type.ArticleLinks, as: ArticleLinks }
   - { name: Honeycrisp.Type.Channel, as: Channel }
   - { name: Honeycrisp.Type.ChannelId, as: ChannelId }
   - { name: Honeycrisp.Type.ChannelLinks, as: ChannelLinks }
@@ -36,6 +38,7 @@
   - { name: Honeycrisp.Type.SectionId, as: SectionId }
   - { name: Honeycrisp.Type.SectionLinks, as: SectionLinks }
   - { name: Honeycrisp.Type.Url, as: Url }
+  - { name: Honeycrisp.Type.Warning, as: Warning }
   - { name: Honeycrisp.Version, as: Version }
   - { name: Lens.Micro, as: Lens }
   - { name: Lens.Micro.Extras, as: Lens }

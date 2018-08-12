@@ -4,10 +4,32 @@ module Honeycrisp
   , Honeycrisp.Api.Section.getChannelSections
   , Honeycrisp.Api.Section.getSection
   , Honeycrisp.Api.Section.promoteSectionArticles
+  , Honeycrisp.Api.Article.getArticle
   , Honeycrisp.Api.Article.deleteArticle
+  , Honeycrisp.Type.Article.Article
+  , Honeycrisp.Type.Article.articleAccessoryText
+  , Honeycrisp.Type.Article.articleCreatedAt
+  , Honeycrisp.Type.Article.articleDocument
+  , Honeycrisp.Type.Article.articleId
+  , Honeycrisp.Type.Article.articleIsCandidateToBeFeatured
+  , Honeycrisp.Type.Article.articleIsPreview
+  , Honeycrisp.Type.Article.articleIsSponsored
+  , Honeycrisp.Type.Article.articleLinks
+  , Honeycrisp.Type.Article.articleMaturityRating
+  , Honeycrisp.Type.Article.articleModifiedAt
+  , Honeycrisp.Type.Article.articleRevision
+  , Honeycrisp.Type.Article.articleShareUrl
+  , Honeycrisp.Type.Article.articleState
+  , Honeycrisp.Type.Article.articleTitle
+  , Honeycrisp.Type.Article.articleType
+  , Honeycrisp.Type.Article.articleWarnings
   , Honeycrisp.Type.ArticleId.ArticleId
   , Honeycrisp.Type.ArticleId.uuidToArticleId
   , Honeycrisp.Type.ArticleId.articleIdToUuid
+  , Honeycrisp.Type.ArticleLinks.ArticleLinks
+  , Honeycrisp.Type.ArticleLinks.articleLinksChannel
+  , Honeycrisp.Type.ArticleLinks.articleLinksSections
+  , Honeycrisp.Type.ArticleLinks.articleLinksSelf
   , Honeycrisp.Type.Channel.Channel
   , Honeycrisp.Type.Channel.channelCreatedAt
   , Honeycrisp.Type.Channel.channelId
@@ -64,6 +86,10 @@ module Honeycrisp
   , Honeycrisp.Type.Url.uriToUrl
   , Honeycrisp.Type.Url.urlToUri
   , Honeycrisp.Type.Url.stringToUrl
+  , Honeycrisp.Type.Warning.Warning
+  , Honeycrisp.Type.Warning.warningKeyPath
+  , Honeycrisp.Type.Warning.warningMessage
+  , Honeycrisp.Type.Warning.warningValue
   , Honeycrisp.Version.version
   , Honeycrisp.Version.versionString
   )
@@ -72,7 +98,9 @@ where
 import qualified Honeycrisp.Api.Article
 import qualified Honeycrisp.Api.Channel
 import qualified Honeycrisp.Api.Section
+import qualified Honeycrisp.Type.Article
 import qualified Honeycrisp.Type.ArticleId
+import qualified Honeycrisp.Type.ArticleLinks
 import qualified Honeycrisp.Type.Channel
 import qualified Honeycrisp.Type.ChannelId
 import qualified Honeycrisp.Type.ChannelLinks
@@ -86,4 +114,5 @@ import qualified Honeycrisp.Type.Section
 import qualified Honeycrisp.Type.SectionId
 import qualified Honeycrisp.Type.SectionLinks
 import qualified Honeycrisp.Type.Url
+import qualified Honeycrisp.Type.Warning
 import qualified Honeycrisp.Version
