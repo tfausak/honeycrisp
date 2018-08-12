@@ -3,6 +3,10 @@ module Honeycrisp
   ( Honeycrisp.Api.Channel.getChannel
   , Honeycrisp.Api.Section.getChannelSections
   , Honeycrisp.Api.Section.getSection
+  , Honeycrisp.Api.Section.promoteSectionArticles
+  , Honeycrisp.Type.ArticleId.ArticleId
+  , Honeycrisp.Type.ArticleId.uuidToArticleId
+  , Honeycrisp.Type.ArticleId.articleIdToUuid
   , Honeycrisp.Type.Channel.Channel
   , Honeycrisp.Type.Channel.channelCreatedAt
   , Honeycrisp.Type.Channel.channelId
@@ -31,6 +35,12 @@ module Honeycrisp
   , Honeycrisp.Type.KeySecret.byteStringToKeySecret
   , Honeycrisp.Type.KeySecret.keySecretToByteString
   , Honeycrisp.Type.KeySecret.stringToKeySecret
+  , Honeycrisp.Type.PromotedArticles.PromotedArticles
+  , Honeycrisp.Type.PromotedArticles.toPromotedArticles
+  , Honeycrisp.Type.PromotedArticles.fromPromotedArticles
+  , Honeycrisp.Type.Request.Request
+  , Honeycrisp.Type.Request.toRequest
+  , Honeycrisp.Type.Request.fromRequest
   , Honeycrisp.Type.Response.Response
   , Honeycrisp.Type.Response.toResponse
   , Honeycrisp.Type.Response.fromResponse
@@ -60,12 +70,15 @@ where
 
 import qualified Honeycrisp.Api.Channel
 import qualified Honeycrisp.Api.Section
+import qualified Honeycrisp.Type.ArticleId
 import qualified Honeycrisp.Type.Channel
 import qualified Honeycrisp.Type.ChannelId
 import qualified Honeycrisp.Type.ChannelLinks
 import qualified Honeycrisp.Type.Config
 import qualified Honeycrisp.Type.KeyId
 import qualified Honeycrisp.Type.KeySecret
+import qualified Honeycrisp.Type.PromotedArticles
+import qualified Honeycrisp.Type.Request
 import qualified Honeycrisp.Type.Response
 import qualified Honeycrisp.Type.Section
 import qualified Honeycrisp.Type.SectionId
