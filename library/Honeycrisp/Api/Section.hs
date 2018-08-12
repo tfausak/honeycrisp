@@ -7,7 +7,7 @@ where
 
 import qualified Data.Aeson as Aeson
 import qualified Data.UUID as Uuid
-import qualified Honeycrisp.Api.Request as Request
+import qualified Honeycrisp.Api.Helper as Helper
 import qualified Honeycrisp.Type.ChannelId as ChannelId
 import qualified Honeycrisp.Type.Config as Config
 import qualified Honeycrisp.Type.PromotedArticles as PromotedArticles
@@ -25,11 +25,11 @@ getChannelSections
   -> IO [Section.Section]
 getChannelSections config manager channelId = do
   request <-
-    Request.createRequest config
+    Helper.createRequest config
     $ "channels/"
     <> Uuid.toString (ChannelId.channelIdToUuid channelId)
     <> "/sections"
-  Request.performRequest config manager request
+  Helper.performRequest config manager request
 
 -- | <https://developer.apple.com/documentation/apple_news/read_section_information>
 getSection
@@ -38,9 +38,9 @@ getSection
   -> SectionId.SectionId
   -> IO Section.Section
 getSection config manager sectionId = do
-  request <- Request.createRequest config $ "sections/" <> Uuid.toString
+  request <- Helper.createRequest config $ "sections/" <> Uuid.toString
     (SectionId.sectionIdToUuid sectionId)
-  Request.performRequest config manager request
+  Helper.performRequest config manager request
 
 -- | <https://developer.apple.com/documentation/apple_news/promote_articles_in_a_section>
 promoteSectionArticles
@@ -51,7 +51,7 @@ promoteSectionArticles
   -> IO PromotedArticles.PromotedArticles
 promoteSectionArticles config manager sectionId promotedArticles = do
   initialRequest <-
-    Request.createRequest config
+    Helper.createRequest config
     $ "sections/"
     <> Uuid.toString (SectionId.sectionIdToUuid sectionId)
     <> "/promotedArticles"
@@ -62,4 +62,4 @@ promoteSectionArticles config manager sectionId promotedArticles = do
         Client.RequestBodyLBS . Aeson.encode $ Request.toRequest
           promotedArticles
       }
-  Request.performRequest config manager request
+  Helper.performRequest config manager request

@@ -1,4 +1,4 @@
-module Honeycrisp.Api.Request
+module Honeycrisp.Api.Helper
   ( createRequest
   , performRequest
   )
